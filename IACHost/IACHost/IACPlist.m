@@ -59,7 +59,6 @@ static IACPlist *plist;
     plist.TestAmount = plist.TestNameArray.count;
 }
 
-
 /***************TEST***************/
 -(void) initTest:(TEST*)t
 {
@@ -127,4 +126,16 @@ static IACPlist *plist;
     return ((int)val == val)?true:false;
 }
 
+-(BOOL)checkIsAllPass{
+    BOOL isAllPass=TRUE;
+    for(int i=0; i<plist.TestAmount; i++)
+    {
+        if (!testData[i].isPass)
+        {
+            isAllPass=FALSE;
+            break;
+        }
+    }
+    return isAllPass;
+}
 @end

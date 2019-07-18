@@ -176,12 +176,12 @@
 		<key>CheckPudding</key>
 		<dict>
 			<key>skip</key>
-			<integer>0</integer>
+			<true/>
 		</dict>
 		<key>CheckBatman_Case</key>
 		<dict>
 			<key>skip</key>
-			<integer>1</integer>
+			<false/>
 			<key>max</key>
 			<integer>85</integer>
 			<key>min</key>
@@ -192,7 +192,7 @@
 		<key>finishWorkHandler</key>
 		<dict>
 			<key>skip</key>
-			<integer>0</integer>
+			<false/>
 		</dict>
 	</dict>
 	<key>TEST_ITEM_NAME</key>

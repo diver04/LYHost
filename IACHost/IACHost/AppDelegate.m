@@ -15,19 +15,6 @@
 
 @implementation AppDelegate
 
-/*
- IACRequest *request = [[IACRequest alloc] init];
- [request requestWithURL:[NSURL URLWithString:@"10.0.1.9:8887/tongzhi"]];
- [request setPostValue:@"111" forKey:@"state"];
- [request setRequestMethod:@"post"];
- NSString *str = [request startSynchronous];
- NSLog(@"requestString = %@",str);
- */
-
-/*
- http://10.0.1.9:8887/tongzhi
- 192.168.1.28:12345
- */
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
  
 }

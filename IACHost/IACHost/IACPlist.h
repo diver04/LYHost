@@ -39,10 +39,10 @@ typedef struct
     NSMutableString *Max;
     NSMutableString *unit;
     
-    NSMutableString *TestValue;//for InstantPudding value
-    NSMutableString *TestDisplayMessage; //for UI display
-    NSMutableString *TestMessage; //for InstantPudding message
-    NSMutableString *TestResult;
+    NSString *TestValue;//for InstantPudding value
+    NSString *TestDisplayMessage; //for UI display
+    NSString *TestMessage; //for InstantPudding message
+    NSString *TestResult;
     Boolean isPass;
     Boolean isWaivePass;
     Boolean isTimeout;
@@ -53,8 +53,9 @@ typedef struct
 {
     TEST testData[MAX_TESTS_SIZE];//用于保存测试项的结果
 }
-+ (IACPlist *)sharedIACPlist;
++(IACPlist *)sharedIACPlist;
 -(TEST*)getItemWithIndex:(int)index;
+-(BOOL)checkIsAllPass;
 
 @property (nonatomic) NSMutableDictionary *IAC_Dict;
 @property (nonatomic) NSUInteger TestAmount;

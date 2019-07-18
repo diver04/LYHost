@@ -7,18 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IACRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IACFunction : NSObject
 
-@property(copy,nonatomic)NSMutableString *testValue;
-@property(copy,nonatomic)NSMutableString *testMessage;
-@property(copy,nonatomic)NSMutableString *testDisplayMessage;
+@property IACRequest *request;
+@property(copy,nonatomic)NSString *testValue;
+@property(copy,nonatomic)NSString *testMessage;
+@property(copy,nonatomic)NSString *testDisplayMessage;
 @property Boolean isPass;
 @property Boolean isTimeout;
-@property Boolean skipBelowTest;
 @property Boolean isStartPudding;
+
+@property Boolean skipBelowTest;
 
 @end
 

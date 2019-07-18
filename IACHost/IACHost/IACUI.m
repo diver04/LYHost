@@ -7,9 +7,6 @@
 //
 
 #import "IACUI.h"
-#import "IACPlist.h"
-#import "IACTestItem.h"
-#import "IACFunction.h"
 
 @implementation IACUI
 
@@ -22,8 +19,8 @@
 
 #pragma mark --针对多线程进行测试
 -(void)doExecuteWithDUT:(int)dutNum senderIdentifier:(NSString*)identifier{
-    NSArray *argumentArr = [NSArray arrayWithObjects:identifier,self.SN_TextField.stringValue, nil];
-    [self performSelectorInBackground:@selector(executTest:) withObject:argumentArr];
+    NSArray *argument = [NSArray arrayWithObjects:identifier,self.SN_TextField.stringValue, nil];
+    [self performSelectorInBackground:@selector(executTest:) withObject:argument];
     
 }
 
@@ -31,24 +28,44 @@
 -(void)executTest:(NSArray*)argument{
     NSString *caseSN = argument[1];
     [self performSelectorOnMainThread:@selector(setTestingStatus:) withObject:argument[0] waitUntilDone:YES];
-    IACPlist *plist = [IACPlist sharedIACPlist];
+    plist = [IACPlist sharedIACPlist];
     IACFunction *fun = [[IACFunction alloc] init];
     for (int i = 0; i<plist.TestAmount; i++) {
-        NSString*itemName = plist.TestNameArray[i];
-        NSDictionary *testItems = plist.TestItemDict;
-        NSDictionary *aTestItem= [testItems objectForKey:itemName];
+        NSString*itemName = plist.TestNameArray[i];//
+        NSDictionary *testItems = plist.TestItemDict;//TESTS
+        NSDictionary *aTestItem= [testItems objectForKey:itemName];//TESTS里的一个Item
         NSLog(@"aTestItem--%@",aTestItem);
-        NSArray*args=[NSArray arrayWithObjects:itemName,[aTestItem valueForKey:@"ValidFrom"],[aTestItem valueForKey:@"min"],[aTestItem valueForKey:@"max"],[aTestItem valueForKey:@"unit"],caseSN,nil];
+        NSLog(@"max--%@",[aTestItem valueForKey:@"max"]);
+//        NSArray*args=[NSArray arrayWithObjects:itemName,[aTestItem valueForKey:@"ValidFrom"],[aTestItem valueForKey:@"min"],[aTestItem valueForKey:@"max"],[aTestItem valueForKey:@"unit"],caseSN,nil];
+        NSString *ValidFrom = [aTestItem valueForKey:@"ValidFrom"];
+        NSNumber *min = [aTestItem valueForKey:@"min"];
+        NSNumber *max = [aTestItem valueForKey:@"max"];
+        NSString *unit = [aTestItem valueForKey:@"unit"];
+         NSMutableArray *array = [NSMutableArray arrayWithCapacity:4];
+//        for (NSString  in <#collection#>) {
+//
+//        }
+//        if () {
+//
+//        }
+        NSArray*args=@[itemName,ValidFrom,min,max,unit,caseSN];
+        NSLog(@"args-------%@",args);
         BOOL isSkip = [[aTestItem objectForKey:@"skip"] boolValue];
         if (!isSkip) {
             if ([fun respondsToSelector:NSSelectorFromString([NSString stringWithFormat:@"%@:",itemName])]) {
                  [fun performSelector:NSSelectorFromString([NSString stringWithFormat:@"%@:",itemName]) withObject:args];
+            }else{
+                NSLog(@"没有找到%@",itemName);
             }
         }
         //保存测试结果
         TEST *item=[plist getItemWithIndex:i];
         if (!item->isSkip) {
-            
+            item->TestValue = fun.testValue;
+            item->TestDisplayMessage = fun.testDisplayMessage;
+            item->TestMessage = fun.testMessage;
+            item->isPass = fun.isPass;
+            item->isTimeout = fun.isTimeout;
         }
     }
     [self performSelectorOnMainThread:@selector(testEnd:) withObject:argument waitUntilDone:YES];
@@ -67,7 +84,14 @@
     [self performSelectorOnMainThread:@selector(showTheTestResultOnUI:) withObject:[argument objectAtIndex:0] waitUntilDone:YES];
 }
 
--(void)showTheTestResultOnUI1:(NSNumber*)dutNum{
-    
+-(void)showTheTestResultOnUI:(NSNumber*)dutNum{
+    if ([plist checkIsAllPass]) {
+        self.SN_TextField.stringValue = @"Pass";
+        self.UIWindow.backgroundColor = [NSColor greenColor];
+    }
+    else{
+        self.SN_TextField.stringValue = @"Fail";
+        self.UIWindow.backgroundColor = [NSColor redColor];
+    }
 }
 @end

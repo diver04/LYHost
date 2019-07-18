@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IACHost/IACRequest.m"
-            timestampString = "584335908.78087"
+            filePath = "IACHost/IACFunction.m"
+            timestampString = "585103978.403582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-startSynchronous"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-CheckBatman_Case:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IACHost/IACFunction.m"
+            timestampString = "585103978.403646"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-CheckPudding:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
