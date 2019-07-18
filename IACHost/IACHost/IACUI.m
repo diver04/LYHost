@@ -32,22 +32,27 @@
     IACFunction *fun = [[IACFunction alloc] init];
     for (int i = 0; i<plist.TestAmount; i++) {
         NSString*itemName = plist.TestNameArray[i];//
-        NSDictionary *testItems = plist.TestItemDict;//TESTS
-        NSDictionary *aTestItem= [testItems objectForKey:itemName];//TESTS里的一个Item
+        NSLog(@"测试项名称为：%@",itemName);
+        NSDictionary *aTestItem= [plist.TestItemDict objectForKey:itemName];//TESTS里的一个Item
         NSLog(@"aTestItem--%@",aTestItem);
         NSLog(@"max--%@",[aTestItem valueForKey:@"max"]);
 //        NSArray*args=[NSArray arrayWithObjects:itemName,[aTestItem valueForKey:@"ValidFrom"],[aTestItem valueForKey:@"min"],[aTestItem valueForKey:@"max"],[aTestItem valueForKey:@"unit"],caseSN,nil];
         NSString *ValidFrom = [aTestItem valueForKey:@"ValidFrom"];
+        NSLog(@"ValidFrom-%@",ValidFrom);
         NSNumber *min = [aTestItem valueForKey:@"min"];
+        NSLog(@"min-%@",min);
         NSNumber *max = [aTestItem valueForKey:@"max"];
+        NSLog(@"max-%@",max);
         NSString *unit = [aTestItem valueForKey:@"unit"];
-         NSMutableArray *array = [NSMutableArray arrayWithCapacity:4];
+        NSLog(@"unit-%@",unit);
+//        NSMutableArray *array = [NSMutableArray arrayWithCapacity:4];
 //        for (NSString  in <#collection#>) {
 //
 //        }
 //        if () {
 //
 //        }
+        //插入数组的值不能为空
         NSArray*args=@[itemName,ValidFrom,min,max,unit,caseSN];
         NSLog(@"args-------%@",args);
         BOOL isSkip = [[aTestItem objectForKey:@"skip"] boolValue];
