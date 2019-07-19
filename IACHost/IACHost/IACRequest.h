@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setRequestMethod:(NSString*)requestType;
 -(void)setPostValue:(NSString*)value forKey:(NSString*)key;
 -(NSString *)startSynchronous;
+-(NSString *)requestDataWithCommand:(NSString *)aCommand;
 @end
 
 

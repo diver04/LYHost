@@ -20,7 +20,7 @@
     return self;
 }
 
-- (NSString *)requestDataWithArgument:(NSString *)argument{
+- (NSString *)requestDataWithCommand:(NSString *)aCommand{
     //1.创建NSURLSession对象（可以获取单例对象）
     NSURLSession *session = [NSURLSession sharedSession];
     
@@ -34,7 +34,8 @@
     request.HTTPMethod = @"POST";
     //    request.HTTPBody = [@"c=SS_PRECHECK&sn=FXWYLZXTLX2Y&accessory_1=FXWYMBG0JJNV&accessory_2=FWYYN14UJJNW&accessory_3=FXWYLZXTLX2Y&station_id=IACP_P03-3FCRT-01_6_SHIPPING-SETTINGS" dataUsingEncoding:NSUTF8StringEncoding];
     //    request.HTTPBody = [@"TestFunc=1" dataUsingEncoding:NSUTF8StringEncoding];
-    request.HTTPBody = [@"TestFunc=1" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *command = [NSString stringWithFormat:@"Command=%@",aCommand];
+    request.HTTPBody = [command dataUsingEncoding:NSUTF8StringEncoding];
     
     __block NSString *receiveStr = [NSString string];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * __nullable data, NSURLResponse * __nullable response, NSError * __nullable error) {

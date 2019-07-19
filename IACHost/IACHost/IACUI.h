@@ -15,11 +15,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IACUI : NSObject{
+@interface IACUI : NSObject<NSTableViewDelegate>
+{
     IACPlist *plist;
 }
 @property (weak) IBOutlet NSTextField  *SN_TextField;
 @property (weak) IBOutlet NSWindow *UIWindow;
+@property (weak) IBOutlet NSTableView *MyTableView;
+
 @end
 
 NS_ASSUME_NONNULL_END

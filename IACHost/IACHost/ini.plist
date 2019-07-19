@@ -176,7 +176,7 @@
 		<key>CheckPudding</key>
 		<dict>
 			<key>skip</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>CheckBatman_Case</key>
 		<dict>

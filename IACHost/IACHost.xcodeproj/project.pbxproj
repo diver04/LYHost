@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A577F1F22E148E5008DE221 /* logo_IAC.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A577F1C22E148E5008DE221 /* logo_IAC.png */; };
+		4A577F2022E148E5008DE221 /* iacicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4A577F1D22E148E5008DE221 /* iacicon.icns */; };
+		4A577F2122E148E5008DE221 /* Qimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A577F1E22E148E5008DE221 /* Qimg.png */; };
 		4A9AED5222D43D4900C14EB4 /* IACPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AED5122D43D4900C14EB4 /* IACPlist.m */; };
 		4A9AED5422D43EA000C14EB4 /* ini.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AED5322D43EA000C14EB4 /* ini.plist */; };
 		4A9AED6D22D4B1D000C14EB4 /* IACTestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AED6C22D4B1D000C14EB4 /* IACTestItem.m */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A577F1C22E148E5008DE221 /* logo_IAC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_IAC.png; sourceTree = "<group>"; };
+		4A577F1D22E148E5008DE221 /* iacicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = iacicon.icns; sourceTree = "<group>"; };
+		4A577F1E22E148E5008DE221 /* Qimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Qimg.png; sourceTree = "<group>"; };
 		4A9AED5022D43D4900C14EB4 /* IACPlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IACPlist.h; sourceTree = "<group>"; };
 		4A9AED5122D43D4900C14EB4 /* IACPlist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IACPlist.m; sourceTree = "<group>"; };
 		4A9AED5322D43EA000C14EB4 /* ini.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ini.plist; sourceTree = "<group>"; };
@@ -52,6 +58,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A577F1B22E148C3008DE221 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				4A577F1D22E148E5008DE221 /* iacicon.icns */,
+				4A577F1C22E148E5008DE221 /* logo_IAC.png */,
+				4A577F1E22E148E5008DE221 /* Qimg.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		4AE736AE22C464DC00D0F5A1 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +99,7 @@
 				4A9AED5122D43D4900C14EB4 /* IACPlist.m */,
 				4A9AED6B22D4B1D000C14EB4 /* IACTestItem.h */,
 				4A9AED6C22D4B1D000C14EB4 /* IACTestItem.m */,
+				4A577F1B22E148C3008DE221 /* image */,
 				4AE736BD22C464DD00D0F5A1 /* Assets.xcassets */,
 				4AE736BF22C464DD00D0F5A1 /* MainMenu.xib */,
 				4AE736C222C464DD00D0F5A1 /* Info.plist */,
@@ -155,8 +172,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A577F1F22E148E5008DE221 /* logo_IAC.png in Resources */,
 				4AE736BE22C464DD00D0F5A1 /* Assets.xcassets in Resources */,
 				4AE736C122C464DD00D0F5A1 /* MainMenu.xib in Resources */,
+				4A577F2122E148E5008DE221 /* Qimg.png in Resources */,
+				4A577F2022E148E5008DE221 /* iacicon.icns in Resources */,
 				4A9AED5422D43EA000C14EB4 /* ini.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

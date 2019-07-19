@@ -34,8 +34,8 @@ return;\
 
 -(void)CheckPudding:(NSMutableArray *)args{
     init_before_test
-    self.isPass = NO;
-    NSLog(@"1111-%@",args);
+    NSString *str = [self.request requestDataWithCommand:@"SR1"];
+    NSLog(@"Response1:\n %@",str);
     self.isPass = YES;
     if (!self.isPass) {
         self.skipBelowTest = YES;
@@ -44,15 +44,15 @@ return;\
 
 -(void)CheckBatman_Case:(NSMutableArray *)args{
     init_before_test
-    self.isPass = NO;
-    NSLog(@"2222-%@",args);
+    NSString *str = [self.request requestDataWithCommand:@"SR1"];
+    NSLog(@"Response2:\n %@",str);
     self.isPass = YES;
 }
 
 -(void)finishWorkHandler:(NSMutableArray *)args{
     init_before_test
-    self.isPass = NO;
-    NSLog(@"3333-%@",args);
+    NSString *str = [self.request requestDataWithCommand:@"SR1"];
+    NSLog(@"Response3:\n %@",str);
     self.isPass = YES;
 }
 
